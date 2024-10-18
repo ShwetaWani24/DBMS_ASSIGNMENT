@@ -1,0 +1,26 @@
+1) Which field of the Customers table is the primary key?
+Ans: Cnum, because A primary key is a column (or a set of columns) in a database table that uniquely identifies each record (or row) in that table. It ensures that no two rows have the same value(s) in the primary key column(s).
+
+2) What is the 4th column of the Customers table?
+Ans: Rating 
+SHOW COLUMNS FROM Customer;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| Cnum   | int         | YES  |     | NULL    |       |
+| Cname  | varchar(10) | YES  |     | NULL    |       |
+| City   | varchar(10) | YES  |     | NULL    |       |
+| Rating | int         | YES  |     | NULL    |       |
+| Snum   | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+
+3) What is another word for row? For column?
+Ans: Row-Records,Tuples
+     Column-Fields,Attribute
+
+4) Why isn’t it possible to see the first five rows of a table
+Ans:1) Rows are stored in blocks on the hard disk, and the rows in a table may be distributed across multiple pages, possibly even across different parts of the disk. This means the database has to read through different pages or blocks to retrieve rows, which could be in any order physically.
+
+2) Unless a table has a column explicitly defining the order (such as an ORDER BY clause on an indexed column), SQL does not guarantee any inherent "first" or "last" row. Rows in a table, even if inserted in sequence, might be stored non-sequentially on disk.
+
+3) When you run a query like SELECT * FROM table_name, the database engine retrieves rows based on how it stores them in the logical structure of the table, which might not reflect how they are stored physically on the disk. The query result is based on the logical row arrangement, not on their physical storage.
